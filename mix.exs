@@ -33,6 +33,7 @@ defmodule Loon.MixProject do
   defp deps do
     [
       {:gettext, "~> 0.11"},
+      {:httpoison, "~> 1.4"},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},

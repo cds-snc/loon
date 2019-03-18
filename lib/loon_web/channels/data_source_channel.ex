@@ -10,12 +10,23 @@ defmodule LoonWeb.DataSourceChannel do
   def join("data_source:" <> name, _payload, socket) do
     case Loon.Scheduler.job_available?(name) do
       true ->
+        send(self(), {:after_join, name})
         Loon.Scheduler.invoke_job(name)
         {:ok, socket}
 
       false ->
         {:error, %{reason: "Data source does not exist"}}
     end
+  end
+
+  def handle_info({:after_join, name}, socket) do
+    case :ets.lookup(:job_state, name) do
+      [{^name, data}] ->
+        push(socket, "data", data)
+      _ ->
+        nil
+    end
+    {:noreply, socket}
   end
 
   @doc """
