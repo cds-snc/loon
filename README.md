@@ -1,4 +1,4 @@
-# Loon
+# :duck: Loon
 
 [![Phase](https://img.shields.io/badge/Phase-Discovery-b7028e.svg)](https://digital.canada.ca/products/)
 
