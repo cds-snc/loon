@@ -2,7 +2,7 @@ defmodule LoonWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :loon
 
   socket "/socket", LoonWeb.UserSocket,
-    websocket: [timeout: 45_000],
+    websocket: [timeout: 45_000, check_origin: false],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
