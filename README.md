@@ -6,7 +6,7 @@
 
 The purpose of this application is to provide a high-performance and scalable scheduled job runner that emits JSON data using web socket connections. It allows for Second granularity of job execution in multiple concurrent processes.
 
-Additionally data is only emitted if a client is connected. If no clients are connected no jobs are executed.
+Additionally data is only emitted if a client is connected. If no clients are connected, no jobs are executed.
 
 The applications leverages the [Phoenix](https://phoenixframework.org/) application framework to ensure performance and reliability. Further it uses [Quantum](https://github.com/quantum-elixir/quantum-core) to supervise jobs with the ability to spread them across multiple nodes.
 
@@ -20,7 +20,7 @@ Data is shared through web socket connections. Each client creates one socket co
 
 The data sent through the web socket is an object with a `data` and a `timestamp` key and looks something like this:
 
-```
+```JSON
 {
    "data": <<THE EMITED DATA>>,
    "timestamp":"2019-03-17T18:36:32.977228Z"
@@ -33,7 +33,7 @@ Sample implementation for a React application:
 
 `App.js` - please note that you only ever need one `socket` connection.
 
-```
+```JavaScript
 import React, { Component } from "react";
 import { Socket } from "phoenix";
 import ServerMemory from "./widgets/server_memory";
@@ -61,7 +61,7 @@ export default App;
 
 `widgets/server_memory`
 
-```
+```JavaScript
 import React, { Component } from "react";
 
 class Ping extends Component {
@@ -105,7 +105,7 @@ utility functions that enable to Job to be processes by the system. All you need
 
 A simple implementation that send a "pong" message might look something like this.
 
-```
+```Elixir
 defmodule Loon.Jobs.Pong do
   @moduledoc false
 
@@ -124,7 +124,7 @@ end
 
 The sent data would look like this:
 
-```
+```JSON
 {
    "data":"pong",
    "timestamp":"2019-03-17T18:36:32.977228Z"
