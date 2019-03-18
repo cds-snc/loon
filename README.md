@@ -4,7 +4,7 @@
 
 ### Purpose
 
-The purpose of this application is to provide a high-performance and scalable scheduled job runner and JSON data emitter using web socket connections. It allows for Second granularity of job execution in multiple concurrent processes.
+The purpose of this application is to provide a high-performance and scalable scheduled job runner that emits JSON data using web socket connections. It allows for Second granularity of job execution in multiple concurrent processes.
 
 Additionally data is only emitted if a client is connected. If no clients are connected no jobs are executed.
 
