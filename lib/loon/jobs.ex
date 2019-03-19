@@ -80,7 +80,7 @@ defmodule Loon.Jobs do
       Utility function to return the last run of the Job from the :ets
       cache.
       """
-      defp last_run() do
+      def last_run() do
         name = stringified_name()
 
         case :ets.lookup(:job_state, name) do
@@ -95,15 +95,15 @@ defmodule Loon.Jobs do
       @doc """
       Normalizes the schedule input to a string for printing
       """
-      defp normalize_schedule(nil), do: nil
+      def normalize_schedule(nil), do: nil
 
-      defp normalize_schedule(e) when is_binary(e),
+      def normalize_schedule(e) when is_binary(e),
         do: e |> String.downcase()
 
-      defp normalize_schedule({:cron, e}) when is_binary(e),
+      def normalize_schedule({:cron, e}) when is_binary(e),
         do: e |> String.downcase()
 
-      defp normalize_schedule({:extended, e}) when is_binary(e),
+      def normalize_schedule({:extended, e}) when is_binary(e),
         do: String.downcase(e) <> " * * * * *"
     end
   end
