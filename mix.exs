@@ -32,8 +32,9 @@ defmodule Loon.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:aws, "~> 0.5.0"},
       {:gettext, "~> 0.11"},
-      {:httpoison, "~> 1.4"},
+      {:httpoison, "~> 1.4", override: true},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
