@@ -1,4 +1,4 @@
-# :duck: Loon
+# ![loon](https://user-images.githubusercontent.com/5498428/54842075-43aa6280-4ca7-11e9-921c-b8df733f3620.jpg) Loon
 
 [![Phase](https://img.shields.io/badge/Phase-Discovery-b7028e.svg)](https://digital.canada.ca/products/)
 
