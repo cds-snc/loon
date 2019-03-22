@@ -7,7 +7,10 @@ defmodule Loon.Jobs.CdsUp do
 
   @urls  [
       "https://digital.canada.ca",
-      "https://numerique.canada.ca"
+      "https://numerique.canada.ca",
+      "https://vac-handoff.herokuapp.com",
+      "https://vancouver.rescheduler-dev.cds-snc.ca",
+      "https://it.actually.works"
     ]
 
   @doc """
