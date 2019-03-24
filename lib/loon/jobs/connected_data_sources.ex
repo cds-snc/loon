@@ -10,6 +10,14 @@ defmodule Loon.Jobs.ConnectedDataSources do
   """
   def job do
     LoonWeb.UserSocket.count_connections()
-    |> Enum.reduce(0, fn {_, c}, acc -> acc + c end)
+    |> Enum.map(fn {key, value} ->
+      name =
+        key
+        |> String.replace("data_source:", "")
+        |> String.replace("_", " ")
+        |> String.capitalize
+      {name, value}
+    end)
+    |> Enum.into(%{})
   end
 end
