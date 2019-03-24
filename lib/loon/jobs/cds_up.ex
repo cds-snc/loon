@@ -10,7 +10,7 @@ defmodule Loon.Jobs.CdsUp do
   """
   def job() do
     args = %{
-      api_key: "u711375-565988b788a441ce4f62622d",
+      api_key: Map.fetch!(System.get_env(), "UPTIME_KEY"),
       format: "json",
       logs: "1"
     }
