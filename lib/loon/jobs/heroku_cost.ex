@@ -3,7 +3,7 @@ defmodule Loon.Jobs.HerokuCost do
 
   use Loon.Jobs,
     description: "Returns the cost of Heroku per month once a day",
-    schedule: "* 0 * * *"
+    schedule: "* 1 * * *"
 
   @doc """
   Returns the cost of Heroku per month once a day

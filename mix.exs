@@ -34,13 +34,15 @@ defmodule Loon.MixProject do
     [
       {:aws, "~> 0.5.0"},
       {:gettext, "~> 0.11"},
+      {:google_api_big_query, "~> 0.2.0"},
+      {:goth, "~> 0.8.0"},
       {:httpoison, "~> 1.4", override: true},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
       {:quantum, "~> 2.3"},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
     ]
   end
 end

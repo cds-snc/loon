@@ -35,3 +35,4 @@ loon-*.tar
 # variables.
 /config/*.secret.exs
 .elixir_ls
+google.json
