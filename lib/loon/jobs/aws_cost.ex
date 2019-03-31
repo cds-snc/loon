@@ -16,7 +16,7 @@ defmodule Loon.Jobs.AwsCost do
         client,
         %{
           Granularity: "MONTHLY",
-          TimePeriod: %{Start: beginning_of_month(-6), End: end_of_month(-1)},
+          TimePeriod: %{Start: beginning_of_month(-4), End: end_of_month(-1)},
           Metrics: ["UnblendedCost"]
         }
       )
