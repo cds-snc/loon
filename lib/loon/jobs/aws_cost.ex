@@ -11,12 +11,12 @@ defmodule Loon.Jobs.AwsCost do
   def job do
     client = client()
 
-    {:ok, last_month, _} =
+    {:ok, last_months, _} =
       Loon.Support.CostExplorer.get_cost_and_usage(
         client,
         %{
           Granularity: "MONTHLY",
-          TimePeriod: %{Start: beginning_of_month(-1), End: end_of_month(-1)},
+          TimePeriod: %{Start: beginning_of_month(-6), End: end_of_month(-1)},
           Metrics: ["UnblendedCost"]
         }
       )
@@ -36,12 +36,12 @@ defmodule Loon.Jobs.AwsCost do
             client,
             %{
               Granularity: "MONTHLY",
-              TimePeriod: %{Start: today(), End: end_of_month()},
+              TimePeriod: %{Start: tomorrow(), End: tomorrows_end_of_month()},
               Metric: "UNBLENDED_COST"
             }
           )
 
-    %{last_month: last_month, current_month: current_month, forecast: forecast}
+    %{last_months: last_months, current_month: current_month, forecast: forecast}
   end
 
   defp beginning_of_month(shift \\ 0) do
@@ -58,9 +58,16 @@ defmodule Loon.Jobs.AwsCost do
     |> Timex.format!("%Y-%m-%d", :strftime)
   end
 
-  defp today() do
+  defp tomorrow() do
     Timex.now
     |> Timex.shift(days: 1)
+    |> Timex.format!("%Y-%m-%d", :strftime)
+  end
+
+  defp tomorrows_end_of_month() do
+    Timex.now
+    |> Timex.shift(days: 1)
+    |> Timex.end_of_month
     |> Timex.format!("%Y-%m-%d", :strftime)
   end
 

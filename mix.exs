@@ -42,7 +42,8 @@ defmodule Loon.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
       {:quantum, "~> 2.3"},
-      {:timex, "~> 3.0"},
+      {:timex, "~> 3.1"},
+      {:tzdata, "~> 1.0.0-rc.1", override: true}
     ]
   end
 end
