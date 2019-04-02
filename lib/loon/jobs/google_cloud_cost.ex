@@ -9,18 +9,12 @@ defmodule Loon.Jobs.GoogleCloudCost do
   Returns the cost of Google Cloud once per day
   """
   def job() do
-    current_month =
-      Timex.now()
-      |> Timex.format!("%Y%m", :strftime)
-
     query = "SELECT
         project.name,
         SUM(cost) AS COST,
         invoice.month
       FROM
         billing_data.gcp_billing_export_v1_013D76_D3C36E_321F6D
-      WHERE
-        invoice.month = '#{current_month}'
       GROUP BY
         project.name,
         invoice.month;
