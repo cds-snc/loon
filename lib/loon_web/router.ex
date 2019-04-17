@@ -8,5 +8,6 @@ defmodule LoonWeb.Router do
   scope "/", LoonWeb do
     pipe_through :api
     get "/", JobsController, :index
+    get "/:id", JobsController, :show
   end
 end

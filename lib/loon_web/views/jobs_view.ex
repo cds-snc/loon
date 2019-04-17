@@ -7,4 +7,11 @@ defmodule LoonWeb.JobsView do
   def render("index.json", %{jobs: jobs}) do
     jobs
   end
+
+  @doc """
+  Renders data for a specific job
+  """
+  def render("show.json", %{data: data}) do
+    data
+  end
 end

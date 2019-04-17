@@ -15,7 +15,8 @@ defmodule Loon.Jobs do
           name: name(),
           schedule: schedule() |> normalize_schedule(),
           connected: LoonWeb.UserSocket.count_connections("data_source:" <> stringified_name()),
-          last_sent: last_run()
+          last_sent: last_run(),
+          json_data_url: "/" <> stringified_name()
         }
       end
 
