@@ -1,4 +1,4 @@
-# ![loon_small2](https://user-images.githubusercontent.com/5498428/54842801-473ee900-4ca9-11e9-9cb4-2bbfe8ba2b31.png) Loon
+# ![loon_small2](https://user-images.githubusercontent.com/5498428/54842801-473ee900-4ca9-11e9-9cb4-2bbfe8ba2b31.png) dashboard-backend
 
 [![Phase](https://img.shields.io/badge/Phase-Discovery-b7028e.svg)](https://digital.canada.ca/products/)
 
