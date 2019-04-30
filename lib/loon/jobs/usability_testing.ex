@@ -6,7 +6,7 @@ defmodule Loon.Jobs.UsabilityTesting do
     schedule: "0 * * * *"
 
   @doc """
-  Returns the up state of CDS websites based on the uptimerobot API
+  Returns usability testing data from Airtable
   """
   def job() do
     token = Map.fetch!(System.get_env(), "AIRTABLE_DASHBOARD_KEY")
