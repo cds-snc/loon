@@ -6,7 +6,7 @@ defmodule Loon.Jobs.GithubVacForks do
     schedule: "0 * * * *"
 
   @doc """
-  Returns GitHub data on merges to master for https://github.com/veteransaffairscanada/vac-benefits-directory every hour
+  Returns GitHub data on forks of https://github.com/veteransaffairscanada/vac-benefits-directory every hour
   """
   def job() do
     query([])
