@@ -17,8 +17,8 @@ defmodule Loon.Jobs.GithubVacDeploys do
     token = Map.fetch!(System.get_env(), "GITHUB_PUBLIC_ACCESS_TOKEN")
     url = "https://api.github.com/graphql"
     headers = ["Authorization": "Bearer #{token}", "Accept": "Application/json"]
-    body = "{\"query\": \"query {repository(owner: \\\"veteransaffairscanada\\\", name: \\\"vac-benefits-directory\\\") { pullRequests(baseRefName: \\\"master\\\", states: [CLOSED, MERGED], first: 100#{endcursor}) {nodes {title mergedAt url} pageInfo { endCursor hasNextPage}}}}\"}"
-
+    body = "{\"query\": \"query {repository(owner: \\\"veteransaffairscanada\\\", name: \\\"vac-benefits-directory\\\") { pullRequests(baseRefName: \\\"master\\\", states: [CLOSED, MERGED], first: 100#{endcursor}) {nodes {mergedAt author {... on User {organizations(first: 10) {nodes {login}}}}} pageInfo { endCursor hasNextPage}}}}\"}"
+    IO.puts(body)
     case HTTPoison.post(url, body, headers) do
       {:ok, %HTTPoison.Response{body: body}} ->
         resp = Jason.decode!(body)
