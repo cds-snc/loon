@@ -55,6 +55,7 @@ defmodule Loon.Jobs do
         )
 
         LoonWeb.Endpoint.broadcast!("data_source:" <> stringified_name(), "data", %{
+          cached: false,
           data: data,
           timestamp: timestamp
         })
