@@ -11,7 +11,6 @@ defmodule LoonWeb.DataSourceChannel do
     case Loon.Scheduler.job_available?(name) do
       true ->
         send(self(), {:after_join, name})
-        Loon.Scheduler.invoke_job(name)
         {:ok, socket}
 
       false ->
@@ -22,10 +21,11 @@ defmodule LoonWeb.DataSourceChannel do
   def handle_info({:after_join, name}, socket) do
     case :ets.lookup(:job_state, name) do
       [{^name, data}] ->
-        push(socket, "data", data)
+        push(socket, "data", Map.put(data, :cached, true))
       _ ->
         nil
     end
+    Loon.Scheduler.invoke_job(name)
     {:noreply, socket}
   end
 
